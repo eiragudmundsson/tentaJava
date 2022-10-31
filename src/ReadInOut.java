@@ -2,15 +2,27 @@ import java.util.Scanner;
 
 public class ReadInOut {
 
-    private final Scanner sc;
-    public ReadInOut (Scanner sc) {
-        this.sc = sc;
+    public ReadInOut() {
+        Scanner sc = new Scanner(System.in);
+        TextProcessor tp = new TextProcessor();
+        String empty = "";
+        while (sc.hasNext()) {
+            String x = sc.nextLine();
+            if (!x.equals(empty)) {
+                if (tp.isStop(x)) {
+                    // display info before quit
+                    // ...
+                    break;
+
+                }
+
+                this.printMe(x);
+                tp.addToRows(x);
+            }
+        }
     }
 
-    public void printMe () {
-        String text = this.sc.nextLine();
-        if (!text.equals("")) {
-            System.out.println(text);
-        }
+    public void printMe(String input) {
+        System.out.println(input);
     }
 }
