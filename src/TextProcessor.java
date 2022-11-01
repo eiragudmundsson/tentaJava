@@ -2,27 +2,30 @@ import java.util.ArrayList;
 
 public class TextProcessor {
     private final ArrayList<String> rows;
-    private String currentLine;
 
-    private String longestWord;
 
     public TextProcessor() {
         this.rows = new ArrayList<String>();
     }
 
-    public int countLength() {
+    public int countRows() {
         return this.rows.size();
     }
 
     public long countChars() {
-        return this.currentLine.chars().count();
+        long temp = 0;
+        for (String line: this.rows) {
+            temp = temp + line.chars().count();
+        }
+        return temp;
     }
 
     public int countWords() {
-        return this.currentLine.split(" ").length;
+        //return this.currentLine.split(" ").length;
+        return 0;
     }
 
-    public void getLongestWord() {
+    public String getLongestWord() {
         String currentWord = "";
 
         // split the current line
@@ -46,7 +49,7 @@ public class TextProcessor {
             }
         }
 
-        System.out.println(currentWord);
+        return currentWord;
     }
 
     public void addToRows(String input) {
@@ -64,6 +67,8 @@ public class TextProcessor {
     }
 
     public void displayInfo() {
-        this.getLongestWord();
+        System.out.println("The longest word: " + this.getLongestWord());
+        System.out.println("Amount of rows: " + this.countRows());
+        System.out.println("Amount of chars: " + this.countChars());
     }
 }
