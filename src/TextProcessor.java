@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 
 public class TextProcessor {
-
-
-
     private final ArrayList<String> rows;
     private String currentLine;
 
@@ -25,16 +22,31 @@ public class TextProcessor {
         return this.currentLine.split(" ").length;
     }
 
-    public void cetLongestWord() {
+    public void getLongestWord() {
+        String currentWord = "";
+
         // split the current line
+        /**
+         * [] hej
+         * [] Hej Alla tre
+         *
+         * Hej
+         * Hej , Alla
+         */
+        for (String line: this.rows){
+           // current line. Get words through split
+            String[] words = line.split(" ");
 
-        // loop through array
-        for (String word: this.currentLine.split(" ")) {
-            System.out.println((word));
+            // loop through words.
+            for (String word: words) {
+                //Get the longest word with count length
+                if(word.length() > currentWord.length()) {
+                    currentWord = word;
+                }
+            }
         }
-        // count chars each word
 
-
+        System.out.println(currentWord);
     }
 
     public void addToRows(String input) {
@@ -49,5 +61,9 @@ public class TextProcessor {
             return true;
         }
         return false;
+    }
+
+    public void displayInfo() {
+        this.getLongestWord();
     }
 }
