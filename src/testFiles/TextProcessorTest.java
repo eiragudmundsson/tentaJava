@@ -36,4 +36,27 @@ class TextProcessorTest {
         boolean actual3 = false;
         assertEquals(expected3, actual3);
     }
+
+    @Test
+    void countWords() {
+        TextProcessor tp = new TextProcessor();
+
+        tp.addToRows("Hello");
+        tp.addToRows("Hello1");
+
+        int expected = tp.countWords();
+        int actual = 2;
+
+        assertEquals(expected, actual);
+
+
+        tp.addToRows("Hello world");
+        tp.addToRows("Hello1");
+        tp.addToRows("Hello2");
+
+        int expected2 = tp.countWords();
+        int actual2 = 6;
+
+        assertEquals(expected2, actual2);
+    }
 }
