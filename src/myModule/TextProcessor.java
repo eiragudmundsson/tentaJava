@@ -1,3 +1,4 @@
+package myModule;
 import java.util.ArrayList;
 
 public class TextProcessor {
@@ -21,8 +22,11 @@ public class TextProcessor {
     }
 
     public int countWords() {
-        //return this.currentLine.split(" ").length;
-        return 0;
+        int temp = 0;
+        for (String line:this.rows)
+            temp = temp + line.split(" ").length;
+
+        return temp;
     }
 
     public String getLongestWord() {
@@ -37,7 +41,7 @@ public class TextProcessor {
          * Hej , Alla
          */
         for (String line: this.rows){
-           // current line. Get words through split
+            // current line. Get words through split
             String[] words = line.split(" ");
 
             // loop through words.
@@ -60,15 +64,13 @@ public class TextProcessor {
         //incoming string need to compare with string stop
         String stopWord = "stop";
 
-        if (stopWord.equals(input)){
-            return true;
-        }
-        return false;
+        return stopWord.equals(input);
     }
 
     public void displayInfo() {
         System.out.println("The longest word: " + this.getLongestWord());
         System.out.println("Amount of rows: " + this.countRows());
         System.out.println("Amount of chars: " + this.countChars());
+        System.out.println("Amount of words: " + this.countWords());
     }
 }

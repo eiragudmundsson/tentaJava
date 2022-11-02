@@ -1,3 +1,5 @@
+package myModule;
+
 import java.util.Scanner;
 
 public class ReadInOut {
