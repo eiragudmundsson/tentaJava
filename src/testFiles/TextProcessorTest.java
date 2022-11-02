@@ -19,22 +19,16 @@ class TextProcessorTest {
         assertEquals(expected, actual);
 
     }
-
     @Test
-    void isStop() {
+    void countChars() {
         TextProcessor tp = new TextProcessor();
+        tp.addToRows("Hello");
+        tp.addToRows("Hello1");
 
-        boolean expected = tp.isStop("stop");
-        boolean actual = true;
+        long expected = tp.countChars();
+        long actual = 11;
+
         assertEquals(expected, actual);
-
-        boolean expected2 = tp.isStop("stoP");
-        boolean actual2 = true;
-        assertEquals(expected2, actual2);
-
-        boolean expected3 = tp.isStop("Hello");
-        boolean actual3 = false;
-        assertEquals(expected3, actual3);
     }
 
     @Test
@@ -59,4 +53,33 @@ class TextProcessorTest {
 
         assertEquals(expected2, actual2);
     }
+    @Test
+    void getLongestWord () {
+        TextProcessor tp = new TextProcessor();
+        tp.addToRows("Hello");
+        tp.addToRows("Hello1");
+
+        String expected = tp.getLongestWord();
+        String actual = "Hello1";
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void isStop() {
+        TextProcessor tp = new TextProcessor();
+
+        boolean expected = tp.isStop("stop");
+        boolean actual = true;
+        assertEquals(expected, actual);
+
+        boolean expected2 = tp.isStop("stoP");
+        boolean actual2 = true;
+        assertEquals(expected2, actual2);
+
+        boolean expected3 = tp.isStop("Hello");
+        boolean actual3 = false;
+        assertEquals(expected3, actual3);
+    }
+
 }
