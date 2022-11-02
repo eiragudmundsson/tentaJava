@@ -64,7 +64,7 @@ public class TextProcessor {
         //incoming string need to compare with string stop
         String stopWord = "stop";
 
-        return stopWord.equals(input);
+        return stopWord.equals(input.toLowerCase());
     }
 
     public void displayInfo() {
