@@ -6,7 +6,7 @@ public class TextProcessor {
 
 
     public TextProcessor() {
-        this.rows = new ArrayList<String>();
+        this.rows = new ArrayList<>();
     }
 
     public int countRows() {
@@ -33,13 +33,7 @@ public class TextProcessor {
         String currentWord = "";
 
         // split the current line
-        /**
-         * [] hej
-         * [] Hej Alla tre
-         *
-         * Hej
-         * Hej , Alla
-         */
+
         for (String line: this.rows){
             // current line. Get words through split
             String[] words = line.split(" ");
@@ -72,5 +66,6 @@ public class TextProcessor {
         System.out.println("Amount of rows: " + this.countRows());
         System.out.println("Amount of chars: " + this.countChars());
         System.out.println("Amount of words: " + this.countWords());
+        System.out.println("All words: " + this.rows);
     }
 }
